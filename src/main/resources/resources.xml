@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">MiSpinner</string>
+    <string name="action_settings">Aceptar</string>
+    <string name="selecciona_motos">Selecciona tu moto</string>
+    <string-array name="valores_array">
+        <item>Kawasaki</item>
+        <item>Honda</item>
+        <item>Ducati</item>
+        <item>Harley</item>
+    </string-array>
+</resources>
