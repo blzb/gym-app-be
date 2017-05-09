@@ -21,6 +21,8 @@ public class Persona {
     @Temporal(value = TemporalType.DATE)
     private Date fechaNacimiento;
 
+    private String password;
+
     @OneToMany
     List<Actividad> actividades;
 
