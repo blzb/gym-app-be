@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Content page</title>
+
+</head>
+<body>
+<span layout:fragment="title">Actividades de <span th:text="${persona.nombreCompleto}"></span></span>
+<section layout:fragment="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-content">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Actividad</th>
+                                <th>Duracion(minutos)</th>
+                                <th>Calorias</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="gradeX" th:each="marca : ${marcas}">
+                                <td th:text="${marca.fecha}">A Smoke Test'</td>
+                                <td th:text="${marca.actividad.nombre}">A Smoke Test'</td>
+                                <td th:text="${marca.duracion}">A Smoke Test'</td>
+                                <td th:text="${marca.duracion}">A Smoke Test'</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Morris -->
+    <script src="/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/js/plugins/morris/morris.js"></script>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Line Chart Example </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Config option 1</a>
+                            </li>
+                            <li><a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-line-chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Donut Chart Example</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Config option 1</a>
+                            </li>
+                            <li><a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-donut-chart" ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
+
+        /*<![CDATA[*/
+
+        var pieValues = /*[[${pieValues}]]*/ '[]';
+
+        /*]]>*/
+    </script>
+    <script type="application/javascript">
+        $(function() {
+
+            Morris.Donut({
+                element: 'morris-donut-chart',
+                data: JSON.parse(pieValues),
+                resize: true,
+                colors: ['#87d6c6', '#54cdb4','#1ab394'],
+            });
+
+
+            Morris.Line({
+                element: 'morris-line-chart',
+                data: [{ y: '2006', a: 100, b: 90 },
+                    { y: '2007', a: 75, b: 65 },
+                    { y: '2008', a: 50, b: 40 },
+                    { y: '2009', a: 75, b: 65 },
+                    { y: '2010', a: 50, b: 40 },
+                    { y: '2011', a: 75, b: 65 },
+                    { y: '2012', a: 100, b: 90 } ],
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Series A', 'Series B'],
+                hideHover: 'auto',
+                resize: true,
+                lineColors: ['#54cdb4','#1ab394'],
+            });
+
+        });
+    </script>
+</section>
+</body>
+</html>
