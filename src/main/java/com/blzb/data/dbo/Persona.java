@@ -22,8 +22,8 @@ public class Persona {
 
     private String password;
 
-    @OneToMany
-    List<Actividad> actividades;
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    List<Marca> marcas;
 
     @OneToMany
     List<Estado> estados;
@@ -68,12 +68,20 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public List<Actividad> getActividades() {
-        return actividades;
+    public List<Marca> getMarcas() {
+        return marcas;
     }
 
-    public void setActividades(List<Actividad> actividades) {
-        this.actividades = actividades;
+    public void setMarcas(List<Marca> marcas) {
+        this.marcas = marcas;
+    }
+
+    public List<Estado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(List<Estado> estados) {
+        this.estados = estados;
     }
 
     public String getPassword() {

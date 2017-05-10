@@ -22,6 +22,12 @@ public class Marca {
     @Temporal(value = TemporalType.DATE)
     private Date fecha;
 
+    @PrePersist
+    void prePersist(){
+        if(fecha == null){
+            fecha = new Date();
+        }
+    }
     public Long getId() {
         return id;
     }

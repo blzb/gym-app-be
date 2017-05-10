@@ -48,7 +48,7 @@ public class AppController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginPOST( Model model, HttpServletRequest httpServletRequest) {
-        String email = httpServletRequest.getParameter("email");
+        String email = httpServletRequest.getParameter("boleta");
         String password = httpServletRequest.getParameter("password");
         System.out.println(email);
         System.out.println(password);
