@@ -76,4 +76,9 @@ public class Persona {
     public void setActividades(List<Actividad> actividades) {
         this.actividades = actividades;
     }
+
+    @Transient
+    public String getNombreCompleto(){
+        return nombre+" "+apellido;
+    }
 }
