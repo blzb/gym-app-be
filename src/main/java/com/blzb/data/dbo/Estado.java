@@ -16,12 +16,20 @@ public class Estado {
     private Date fecha;
     private float estatura;
     private float peso;
-    @OneToOne
+    @ManyToOne
     private Persona persona;
 
     public Long getId() {
         return id;
     }
+
+    @PrePersist
+    void prePersist(){
+        if(fecha == null){
+            fecha = new Date();
+        }
+    }
+
 
     public void setId(Long id) {
         this.id = id;
