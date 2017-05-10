@@ -1,11 +1,3 @@
-CREATE SEQUENCE actividad_seq START 1;
-CREATE SEQUENCE materia_seq START 1;
-CREATE SEQUENCE estado_seq START 1;
-CREATE SEQUENCE equipo_seq START 1;
-CREATE SEQUENCE calificacion_seq START 1;
-CREATE SEQUENCE resevacion_seq START 1;
-CREATE SEQUENCE persona_seq START 1;
-CREATE SEQUENCE marca_seq START 1;
 
 insert into actividad( id, codigo, nombre, mets) values(nextval('actividad_seq'),15734, 'Atletismo', 10.0);
 insert into actividad( id, codigo, nombre, mets) values(nextval('actividad_seq'),15055, 'Básquetbol', 6.5);
