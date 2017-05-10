@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @RepositoryRestResource(path = "/personas", collectionResourceRel = "personas")
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
-    Persona findByCorreoAndPassword(@Param("correo") String correo, @Param("password") String password);
+    Persona findByBoletaAndPassword(@Param("boleta") String boleta, @Param("password") String password);
 }

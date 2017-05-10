@@ -1,4 +1,4 @@
-insert INTO persona(id, nombre, apellido, correo, password) values(nextval('persona_seq'), 'Juan', 'Perez','juan@gmail.com','test' );
+insert INTO persona(id, nombre, apellido, boleta, password) values(nextval('persona_seq'), 'Juan', 'Perez','2008600903','test' );
 
 insert into actividad( id, codigo, nombre, mets) values(nextval('actividad_seq'),15734, 'Atletismo', 10.0);
 insert into actividad( id, codigo, nombre, mets) values(nextval('actividad_seq'),15055, 'Básquetbol', 6.5);

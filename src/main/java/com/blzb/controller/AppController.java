@@ -5,13 +5,10 @@ import com.blzb.data.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * Created by apimentel on 4/24/17.
@@ -55,13 +52,13 @@ public class AppController {
         String password = httpServletRequest.getParameter("password");
         System.out.println(email);
         System.out.println(password);
-        Persona person = personaRepository.findByCorreoAndPassword(email, password);
+        Persona person = personaRepository.findByBoletaAndPassword(email, password);
         if (person != null) {
             httpServletRequest.getSession().setAttribute("userId", person.getId());
             httpServletRequest.getSession().setAttribute("user", person);
             httpServletRequest.getSession().setAttribute("rol", "estudiante");
             return "home";
-        } else if ("admin@ipn.mx".equalsIgnoreCase(email) && "admin".equalsIgnoreCase(password)) {
+        } else if ("admin".equalsIgnoreCase(email) && "admin".equalsIgnoreCase(password)) {
             Persona admin = new Persona();
             admin.setNombre("Administrador");
             admin.setApellido("Gimnasio");
