@@ -77,6 +77,14 @@ public class Persona {
         this.actividades = actividades;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Transient
     public String getNombreCompleto(){
         return nombre+" "+apellido;
