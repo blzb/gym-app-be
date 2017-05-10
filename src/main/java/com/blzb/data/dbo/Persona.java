@@ -1,7 +1,5 @@
 package com.blzb.data.dbo;
 
-import org.hibernate.annotations.GeneratorType;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +15,7 @@ public class Persona {
 
     private String nombre;
     private String apellido;
-    private String correo;
+    private String boleta;
     @Temporal(value = TemporalType.DATE)
     private Date fechaNacimiento;
 
@@ -53,12 +51,12 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getBoleta() {
+        return boleta;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setBoleta(String boleta) {
+        this.boleta = boleta;
     }
 
     public Date getFechaNacimiento() {
