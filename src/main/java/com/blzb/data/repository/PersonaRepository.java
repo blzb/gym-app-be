@@ -9,4 +9,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 @RepositoryRestResource(path = "/personas", collectionResourceRel = "personas")
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
+    Persona findByCorreoAndPassword(String correo, String password);
 }

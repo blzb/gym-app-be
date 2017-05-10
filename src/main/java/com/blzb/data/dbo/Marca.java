@@ -11,10 +11,10 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Persona persona;
 
-    @OneToOne
+    @ManyToOne
     private Actividad actividad;
 
     private int duracion;

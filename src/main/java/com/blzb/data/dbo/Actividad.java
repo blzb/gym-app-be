@@ -12,8 +12,8 @@ public class Actividad {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
-    private String descripcion;
-    private String nivel;
+    private String codigo;
+    private float mets;
 
     public Long getId() {
         return id;
@@ -31,19 +31,19 @@ public class Actividad {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getNivel() {
-        return nivel;
+    public float getMets() {
+        return mets;
     }
 
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
+    public void setMets(float mets) {
+        this.mets = mets;
     }
 }

@@ -21,6 +21,8 @@ public class Persona {
     @Temporal(value = TemporalType.DATE)
     private Date fechaNacimiento;
 
+    private String password;
+
     @OneToMany
     List<Actividad> actividades;
 
@@ -73,5 +75,10 @@ public class Persona {
 
     public void setActividades(List<Actividad> actividades) {
         this.actividades = actividades;
+    }
+
+    @Transient
+    public String getNombreCompleto(){
+        return nombre+" "+apellido;
     }
 }
