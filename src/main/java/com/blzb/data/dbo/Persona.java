@@ -24,7 +24,7 @@ public class Persona {
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     List<Marca> marcas;
 
-    @OneToMany
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     List<Estado> estados;
 
     public Long getId() {
