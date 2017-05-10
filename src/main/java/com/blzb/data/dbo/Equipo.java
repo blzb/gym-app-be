@@ -7,9 +7,10 @@ import java.util.List;
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="equipo_seq", sequenceName="equipo_seq", allocationSize=1)
 public class Equipo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "equipo_seq")
     private Long id;
     private String nombre;
     private String descripcion;

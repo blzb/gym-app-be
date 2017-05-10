@@ -10,9 +10,10 @@ import java.util.List;
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="persona_seq", sequenceName="persona_seq", allocationSize=1)
 public class Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "persona_seq")
     private Long id;
 
     private String nombre;

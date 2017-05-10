@@ -7,9 +7,10 @@ import java.util.Date;
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="estado_seq", sequenceName="estado_seq", allocationSize=1)
 public class Estado {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_seq")
     private Long id;
     @Temporal(value = TemporalType.DATE)
     private Date fecha;
@@ -17,4 +18,44 @@ public class Estado {
     private float peso;
     @OneToOne
     private Persona persona;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public float getEstatura() {
+        return estatura;
+    }
+
+    public void setEstatura(float estatura) {
+        this.estatura = estatura;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
 }

@@ -7,9 +7,10 @@ import java.sql.Date;
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="resevacion_seq", sequenceName="resevacion_seq", allocationSize=1)
 public class Reservacion {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "resevacion_seq")
     private Long id;
 
     @OneToOne

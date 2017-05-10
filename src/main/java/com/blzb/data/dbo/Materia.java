@@ -1,17 +1,15 @@
 package com.blzb.data.dbo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="materia_seq", sequenceName="materia_seq", allocationSize=1)
 public class Materia {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "materia_seq")
     private Long id;
 
     private String nombre;

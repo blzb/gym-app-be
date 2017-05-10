@@ -6,9 +6,10 @@ import javax.persistence.*;
  * Created by apimentel on 4/25/17.
  */
 @Entity
+@SequenceGenerator(name="calificacion_seq", sequenceName="calificacion_seq", allocationSize=1)
 public class Calificacion {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "calificacion_seq")
     private Long id;
     private float valor;
     private String materia;
