@@ -22,12 +22,15 @@ public class Marca {
     @Temporal(value = TemporalType.DATE)
     private Date fecha;
 
+    private int calorias;
+
     @PrePersist
-    void prePersist(){
-        if(fecha == null){
+    void prePersist() {
+        if (fecha == null) {
             fecha = new Date();
         }
     }
+
     public Long getId() {
         return id;
     }
@@ -66,5 +69,13 @@ public class Marca {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public int getCalorias() {
+        return calorias;
+    }
+
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
     }
 }

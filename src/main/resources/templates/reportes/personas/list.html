@@ -26,7 +26,7 @@
                             <tr class="gradeX" th:each="persona : ${personas}">
                                 <td th:text="${persona.boleta}">A Smoke Test'</td>
                                 <td th:text="${persona.nombreCompleto}">A Smoke Test'</td>
-                                <td><a class="btn" th:href="${'/reportes/persona/'+persona.id}">Ver Reporte</a></td>
+                                <td><a class="btn btn-primary" th:href="${'/reportes/persona/'+persona.id}">Ver Reporte</a></td>
                             </tr>
                             </tbody>
                         </table>

@@ -17,6 +17,7 @@
     <link href="/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
     <link href="/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
     <link href="/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+    <link href="/css/plugins/dataTables/buttons.dataTables.min.css" rel="stylesheet">
 
 
     <!-- Mainly scripts -->
@@ -33,7 +34,10 @@
     <script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="/js/plugins/dataTables/dataTables.responsive.js"></script>
     <script src="/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
-
+    <script src="/js/plugins/dataTables/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 </head>
 
 <body class="">
@@ -64,21 +68,21 @@
                     </div>
                 </li>
 
-                <li >
+                <li>
                     <a href="/actividad"><i class="fa fa-diamond"></i> <span class="nav-label">Actividades</span></a>
                 </li>
 
-                <li >
+                <li>
                     <a href="/materias"><i class="fa fa-diamond"></i> <span
                             class="nav-label">Materias</span></a>
                 </li>
-                <li >
+                <li>
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span><span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="/reportes/persona">Por Usuario</a></li>
-                        <li><a href="graph_morris.html">Por Actividad</a></li>
-                        <li><a href="graph_rickshaw.html">Por Rendimiento</a></li>
+                        <li><a href="/reportes/persona">Actividades por Usuario</a></li>
+                        <li><a href="/reportes/actividad">Actividades</a></li>
+                        <li><a href="/reportes/rendimiento">Por Rendimiento</a></li>
                     </ul>
                 </li>
             </ul>
@@ -133,7 +137,36 @@
 
 <script>
     $(document).ready(function () {
-        $('.dataTables-example').DataTable();
+        $('.dataTables-example').DataTable({
+            dom: '<"clear">Blfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf'
+            ],
+            language: {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
     });
 </script>
 
