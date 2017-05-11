@@ -15,6 +15,7 @@ public class Actividad {
     private String nombre;
     private String codigo;
     private float mets;
+    private String url;
 
     public Long getId() {
         return id;
@@ -46,5 +47,13 @@ public class Actividad {
 
     public void setMets(float mets) {
         this.mets = mets;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -17,18 +17,16 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Codigo</th>
-                                <th>Mets</th>
-                                <th>Icono</th>
+                                <th>Boleta</th>
+                                <th>Nombre Completo</th>
+                                <th>Reporte</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="gradeX" th:each="actividad : ${actividades}">
-                                <td th:text="${actividad.nombre}">A Smoke Test'</td>
-                                <td th:text="${actividad.codigo}">A Smoke Test'</td>
-                                <td th:text="${actividad.mets}">A Smoke Test'</td>
-                                <td><img height="40px" src="" th:src="${actividad.url}"/></td>
+                            <tr class="gradeX" th:each="persona : ${personas}">
+                                <td th:text="${persona.boleta}">A Smoke Test'</td>
+                                <td th:text="${persona.nombreCompleto}">A Smoke Test'</td>
+                                <td><a class="btn btn-primary" th:href="${'/reportes/persona/'+persona.id}">Ver Reporte</a></td>
                             </tr>
                             </tbody>
                         </table>

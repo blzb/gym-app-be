@@ -1,5 +1,6 @@
 package com.blzb.controller;
 
+import com.blzb.data.dbo.Actividad;
 import com.blzb.data.dbo.Marca;
 import com.blzb.data.dbo.Persona;
 import com.blzb.data.repository.ActividadRepository;
@@ -13,17 +14,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.websocket.server.PathParam;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Created by apimentel on 5/9/17.
  */
 @Controller
-@RequestMapping("reportes")
-public class ReportesController {
+@RequestMapping("reportes/actividades")
+public class ReportesActividadesController {
     @Autowired
     ActividadRepository actividadRepository;
     @Autowired
@@ -32,23 +30,22 @@ public class ReportesController {
     @Autowired
     MarcaRepository marcaRepository;
 
-    @RequestMapping("persona")
+    @RequestMapping("")
     public String home(Model model) {
-        model.addAttribute("personas", personaRepository.findAll());
+        model.addAttribute("actividades", actividadRepository.findAll());
         return "reportes/personas/list";
     }
 
-    @RequestMapping("persona/{id}")
+    @RequestMapping("{id}")
     public String personaReport(@PathVariable("id") Long id, Model model) throws JsonProcessingException {
-        Persona persona = personaRepository.getOne(id);
-        List<Marca> marcas = marcaRepository.findByPersona(persona);
+        Actividad actividad = actividadRepository.getOne(id);
+        List<Marca> marcas = marcaRepository.findByActividad(actividad);
         ObjectMapper objectMapper = new ObjectMapper();
         model.addAttribute("pieValues", objectMapper.writeValueAsString(getTotals(marcas)));
         model.addAttribute("caloriasValues", objectMapper.writeValueAsString(getCalorias(marcas)));
         model.addAttribute("timeValues", objectMapper.writeValueAsString(getTimeSeries(marcas)));
         model.addAttribute("timeLabels", objectMapper.writeValueAsString(actividadesTimeSeries(marcas)));
         model.addAttribute("marcas", marcas);
-        model.addAttribute("persona", persona);
         return "reportes/personas/report";
     }
 

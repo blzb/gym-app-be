@@ -14,4 +14,5 @@ import java.util.List;
 @RepositoryRestResource(path = "/marcas", collectionResourceRel = "marcas")
 public interface MarcaRepository extends JpaRepository<Marca, Long> {
     List<Marca> findByPersona(Persona persona);
+    List<Marca> findByActividad(Actividad actividad);
 }
