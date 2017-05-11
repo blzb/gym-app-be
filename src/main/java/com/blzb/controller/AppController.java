@@ -1,6 +1,8 @@
 package com.blzb.controller;
 
+import com.blzb.data.dbo.Estado;
 import com.blzb.data.dbo.Persona;
+import com.blzb.data.repository.EstadoRepository;
 import com.blzb.data.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by apimentel on 4/24/17.
@@ -17,6 +21,11 @@ import javax.servlet.http.HttpServletRequest;
 public class AppController {
     @Autowired
     PersonaRepository personaRepository;
+
+    @Autowired
+    EstadoRepository estadoRepository;
+
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
 
     @RequestMapping("")
     public String home(HttpServletRequest httpServletRequest) {
@@ -47,7 +56,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String loginPOST( Model model, HttpServletRequest httpServletRequest) {
+    public String loginPOST(Model model, HttpServletRequest httpServletRequest) {
         String email = httpServletRequest.getParameter("boleta");
         String password = httpServletRequest.getParameter("password");
         System.out.println(email);
@@ -78,11 +87,33 @@ public class AppController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String registerPOST(Persona persona, HttpServletRequest httpServletRequest) {
+    public String registerPOST(HttpServletRequest httpServletRequest) throws ParseException {
+        String nombre = httpServletRequest.getParameter("nombre");
+        String apellido = httpServletRequest.getParameter("apellido");
+        String sexo = httpServletRequest.getParameter("sexo");
+        String fechaNacimiento = httpServletRequest.getParameter("fechaNacimiento");
+        String boleta = httpServletRequest.getParameter("boleta");
+        String password = httpServletRequest.getParameter("password");
+        String peso = httpServletRequest.getParameter("peso");
+        String estatura = httpServletRequest.getParameter("estatura");
+        String carrera = httpServletRequest.getParameter("carrera");
+        Persona persona = new Persona();
+        persona.setNombre(nombre);
+        persona.setApellido(apellido);
+        persona.setBoleta(boleta);
+        persona.setSexo(sexo);
+        persona.setCarrera(carrera);
+        persona.setFechaNacimiento(simpleDateFormat.parse(fechaNacimiento));
+        persona.setPassword(password);
         persona = personaRepository.save(persona);
+        Estado estado = new Estado();
+        estado.setEstatura(Float.parseFloat(estatura));
+        estado.setPeso(Float.parseFloat(peso));
+        estado.setPersona(persona);
+        estado = estadoRepository.save(estado);
         httpServletRequest.getSession().setAttribute("userId", persona.getId());
         httpServletRequest.getSession().setAttribute("user", persona);
-        return "home";
+        return "redirect:/";
     }
 
 }

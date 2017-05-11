@@ -1,6 +1,7 @@
 package com.blzb.data.dbo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -12,9 +13,11 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
+    @NotNull
     private Persona persona;
 
     @ManyToOne
+    @NotNull
     private Actividad actividad;
 
     private int duracion;
