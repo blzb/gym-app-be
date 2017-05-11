@@ -17,15 +17,15 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                             <tr>
-                                <th>Materia</th>
                                 <th>Semestre</th>
+                                <th>Materia</th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="gradeX" th:each="materia : ${materias}">
-                                <td th:text="${materia.nombre}">A Smoke Test'</td>
                                 <td th:text="${materia.semestre}">A Smoke Test'</td>
+                                <td th:text="${materia.nombre}">A Smoke Test'</td>
                                 <td><a class="btn btn-primary" th:href="${'/calificaciones/'+materia.id}">Agregar Calificacion</a></td>
                             </tr>
                             </tbody>
