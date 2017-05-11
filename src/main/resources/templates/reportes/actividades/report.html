@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<span layout:fragment="title">Actividades de <span th:text="${persona.nombreCompleto}"></span></span>
+<span layout:fragment="title">Registros de <span th:text="${actividad.nombre}"></span></span>
 <section layout:fragment="content">
     <div class="row">
         <div class="col-lg-12">
@@ -19,7 +19,7 @@
                             <thead>
                             <tr>
                                 <th>Fecha</th>
-                                <th>Actividad</th>
+                                <th>Alumno</th>
                                 <th>Duracion(minutos)</th>
                                 <th>Calorias</th>
                             </tr>
@@ -27,7 +27,7 @@
                             <tbody>
                             <tr class="gradeX" th:each="marca : ${marcas}">
                                 <td th:text="${marca.fecha}">A Smoke Test'</td>
-                                <td th:text="${marca.actividad.nombre}">A Smoke Test'</td>
+                                <td th:text="${marca.persona.nombreCompleto}">A Smoke Test'</td>
                                 <td th:text="${marca.duracion}">A Smoke Test'</td>
                                 <td th:text="${marca.duracion}">A Smoke Test'</td>
                             </tr>
