@@ -8,6 +8,9 @@ import com.blzb.data.repository.MarcaRepository;
 import com.blzb.data.repository.PersonaRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Functions;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +34,26 @@ public class ReportesActividadesController {
     MarcaRepository marcaRepository;
 
     @RequestMapping("")
-    public String home(Model model) {
-        model.addAttribute("actividades", actividadRepository.findAll());
+    public String home(Model model) throws JsonProcessingException {
+        List<Actividad> actividads = actividadRepository.findAll();
+        model.addAttribute("actividades", actividads);
+        Map<String, Integer> contadores = new TreeMap<>();
+        List<Marca> marcas = marcaRepository.findAll();
+        for(Actividad actividad: actividads){
+            contadores.put(actividad.getNombre(), 0);
+        }
+        for (Marca marca : marcas) {
+            contadores.put(marca.getActividad().getNombre(), contadores.get(marca.getActividad().getNombre()) + 1);
+        }
+        List<Map> jsonValues = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : contadores.entrySet()) {
+            Map item = new HashMap();
+            item.put("y", entry.getKey());
+            item.put("totales", entry.getValue());
+            jsonValues.add(item);
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        model.addAttribute("contadores", objectMapper.writeValueAsString(jsonValues));
         return "reportes/actividades/list";
     }
 
@@ -47,38 +68,29 @@ public class ReportesActividadesController {
         model.addAttribute("timeLabels", objectMapper.writeValueAsString(actividadesTimeSeries(marcas)));
         model.addAttribute("marcas", marcas);
         model.addAttribute("actividad", actividad);
-        return "reportes/personas/report";
+        return "reportes/actividades/report";
     }
 
     private Set<String> actividadesTimeSeries(List<Marca> marcas) {
         Set<String> labels = new LinkedHashSet<>();
-        for (Marca marca : marcas) {
-            labels.add(marca.getActividad().getNombre());
-        }
+        labels.add("minutos");
         return labels;
     }
 
     private List<Map> getTimeSeries(List<Marca> marcas) {
-        Map<Date, Map<String, Integer>> totals = new HashMap<>();
+        Map<Date, Integer> totals = new HashMap<>();
         for (Marca marca : marcas) {
             if (!totals.containsKey(marca.getFecha())) {
-                totals.put(marca.getFecha(), new HashMap<>());
+                totals.put(marca.getFecha(), 0);
             }
 
-            if (!totals.get(marca.getFecha()).containsKey(marca.getActividad().getNombre())) {
-                totals.get(marca.getFecha()).put(marca.getActividad().getNombre(), 0);
-            }
-            totals.get(marca.getFecha()).put(
-                    marca.getActividad().getNombre(), totals.get(marca.getFecha()).get(
-                            marca.getActividad().getNombre()) + marca.getDuracion());
+            totals.put(marca.getFecha(), totals.get(marca.getFecha()) + marca.getDuracion());
         }
         List<Map> jsonValues = new ArrayList<>();
-        for (Map.Entry<Date, Map<String, Integer>> entry : totals.entrySet()) {
+        for (Map.Entry<Date, Integer> entry : totals.entrySet()) {
             Map item = new HashMap();
             item.put("y", entry.getKey());
-            for (Map.Entry<String, Integer> actividad : entry.getValue().entrySet()) {
-                item.put(actividad.getKey(), actividad.getValue());
-            }
+            item.put("minutos", entry.getValue());
             jsonValues.add(item);
         }
         return jsonValues;
@@ -88,12 +100,12 @@ public class ReportesActividadesController {
     private List<Map> getTotals(List<Marca> marcas) {
         Map<String, Integer> totals = new HashMap<>();
         for (Marca marca : marcas) {
-            if (!totals.containsKey(marca.getActividad().getNombre())) {
-                totals.put(marca.getActividad().getNombre(), 0);
+            if (!totals.containsKey(marca.getPersona().getNombreCompleto())) {
+                totals.put(marca.getPersona().getNombreCompleto(), 0);
             }
             totals.put(
-                    marca.getActividad().getNombre(),
-                    totals.get(marca.getActividad().getNombre()) + marca.getDuracion()
+                    marca.getPersona().getNombreCompleto(),
+                    totals.get(marca.getPersona().getNombreCompleto()) + marca.getDuracion()
             );
         }
         List<Map> jsonValues = new ArrayList<>();
@@ -109,12 +121,12 @@ public class ReportesActividadesController {
     private List<Map> getCalorias(List<Marca> marcas) {
         Map<String, Integer> totals = new HashMap<>();
         for (Marca marca : marcas) {
-            if (!totals.containsKey(marca.getActividad().getNombre())) {
-                totals.put(marca.getActividad().getNombre(), 0);
+            if (!totals.containsKey(marca.getPersona().getNombreCompleto())) {
+                totals.put(marca.getPersona().getNombreCompleto(), 0);
             }
             totals.put(
-                    marca.getActividad().getNombre(),
-                    totals.get(marca.getActividad().getNombre()) + marca.getCalorias()
+                    marca.getPersona().getNombreCompleto(),
+                    totals.get(marca.getPersona().getNombreCompleto()) + marca.getCalorias()
             );
         }
         List<Map> jsonValues = new ArrayList<>();

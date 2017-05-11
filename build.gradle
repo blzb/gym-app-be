@@ -34,4 +34,6 @@ dependencies {
 	compile 'org.ocpsoft.prettytime:prettytime:3.2.7.Final'
 	compile 'net.sourceforge.nekohtml:nekohtml:1.9.21'
 	compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+
 }
