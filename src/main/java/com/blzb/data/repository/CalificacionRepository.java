@@ -16,4 +16,5 @@ public interface CalificacionRepository extends JpaRepository<Calificacion, Long
     List<Calificacion> findByMateria(Materia materia);
 
     List<Calificacion> findTop6ByPersonaOrderByFechaDesc(Persona persona);
+    List<Calificacion> findByPersona(Persona persona);
 }
