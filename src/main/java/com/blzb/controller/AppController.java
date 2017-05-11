@@ -25,7 +25,7 @@ public class AppController {
     @Autowired
     EstadoRepository estadoRepository;
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @RequestMapping("")
     public String home(HttpServletRequest httpServletRequest) {
@@ -65,7 +65,7 @@ public class AppController {
         if (person != null) {
             httpServletRequest.getSession().setAttribute("userId", person.getId());
             httpServletRequest.getSession().setAttribute("user", person);
-            httpServletRequest.getSession().setAttribute("rol", "estudiante");
+            httpServletRequest.getSession().setAttribute("rol", "Estudiante");
             return "home";
         } else if ("admin".equalsIgnoreCase(email) && "admin".equalsIgnoreCase(password)) {
             Persona admin = new Persona();
@@ -73,7 +73,7 @@ public class AppController {
             admin.setApellido("Gimnasio");
             httpServletRequest.getSession().setAttribute("userId", -1);
             httpServletRequest.getSession().setAttribute("user", admin);
-            httpServletRequest.getSession().setAttribute("rol", "admin");
+            httpServletRequest.getSession().setAttribute("rol", "Admin");
             return "home";
         } else {
             model.addAttribute("mensaje", "Usuario no Encontrado");
@@ -113,6 +113,7 @@ public class AppController {
         estado = estadoRepository.save(estado);
         httpServletRequest.getSession().setAttribute("userId", persona.getId());
         httpServletRequest.getSession().setAttribute("user", persona);
+        httpServletRequest.getSession().setAttribute("rol", "Estudiante");
         return "redirect:/";
     }
 
