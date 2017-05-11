@@ -20,7 +20,7 @@ import java.util.*;
  * Created by apimentel on 5/9/17.
  */
 @Controller
-@RequestMapping("reportes/actividades")
+@RequestMapping("reportes/actividad")
 public class ReportesActividadesController {
     @Autowired
     ActividadRepository actividadRepository;
@@ -33,7 +33,7 @@ public class ReportesActividadesController {
     @RequestMapping("")
     public String home(Model model) {
         model.addAttribute("actividades", actividadRepository.findAll());
-        return "reportes/personas/list";
+        return "reportes/actividades/list";
     }
 
     @RequestMapping("{id}")
@@ -46,6 +46,7 @@ public class ReportesActividadesController {
         model.addAttribute("timeValues", objectMapper.writeValueAsString(getTimeSeries(marcas)));
         model.addAttribute("timeLabels", objectMapper.writeValueAsString(actividadesTimeSeries(marcas)));
         model.addAttribute("marcas", marcas);
+        model.addAttribute("actividad", actividad);
         return "reportes/personas/report";
     }
 

@@ -12,26 +12,27 @@
             <div class="ibox float-e-margins">
 
                 <div class="ibox-content">
-
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                             <tr>
-                                <th>Boleta</th>
-                                <th>Nombre Completo</th>
-                                <th>Reporte</th>
+                                <th>Nombre</th>
+                                <th>Codigo</th>
+                                <th>Mets</th>
+                                <th>Icono</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="gradeX" th:each="persona : ${personas}">
-                                <td th:text="${persona.boleta}">A Smoke Test'</td>
-                                <td th:text="${persona.nombreCompleto}">A Smoke Test'</td>
-                                <td><a class="btn btn-primary" th:href="${'/reportes/persona/'+persona.id}">Ver Reporte</a></td>
+                            <tr class="gradeX" th:each="actividad : ${actividades}">
+                                <td th:text="${actividad.nombre}">A Smoke Test'</td>
+                                <td th:text="${actividad.codigo}">A Smoke Test'</td>
+                                <td th:text="${actividad.mets}">A Smoke Test'</td>
+                                <td><img height="40px" src="" th:src="${actividad.url}"/></td>
+                                <td><a class="btn btn-primary" th:href="${'/reportes/actividad/'+actividad.id}">Ver Reporte</a></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
