@@ -1,6 +1,7 @@
 package com.blzb.data.dbo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -17,6 +18,7 @@ public class Estado {
     private float estatura;
     private float peso;
     @ManyToOne
+    @NotNull
     private Persona persona;
 
     public Long getId() {
