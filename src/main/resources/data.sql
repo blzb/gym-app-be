@@ -1,4 +1,8 @@
-insert INTO persona(id, nombre, apellido, boleta, password) values(nextval('persona_seq'), 'Juan', 'Perez','2008600903','test' );
+insert INTO persona(id, nombre, apellido, boleta, password, sexo, carrera, fecha_nacimiento) values(nextval('persona_seq'), 'Juan', 'Perez','2008600903','test', 'Hombre', 'Ingeniería en Informática', '1988-09-08' );
+
+insert into estado(id, fecha, estatura, peso, persona_id) values(nextval('estado_seq'),'2017-04-15', 1.80, 100, 1);
+insert into estado(id, fecha, estatura, peso, persona_id) values(nextval('estado_seq'),'2017-05-01', 1.80, 95, 1);
+
 
 insert into actividad(id, codigo, nombre, mets, url) values(nextval('actividad_seq'),15734, 'Atletismo', 10,'http://i.imgur.com/sNQb8NS.png');
 insert into actividad(id, codigo, nombre, mets, url) values(nextval('actividad_seq'),15055, 'Básquetbol', 6.5,'http://i.imgur.com/0cwBlIj.png');

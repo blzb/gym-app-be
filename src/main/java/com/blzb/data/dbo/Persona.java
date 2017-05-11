@@ -1,6 +1,9 @@
 package com.blzb.data.dbo;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +24,10 @@ public class Persona {
     private Date fechaNacimiento;
 
     private String password;
+
+    private String sexo;
+
+    private String carrera;
 
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     List<Marca> marcas;
@@ -93,7 +100,35 @@ public class Persona {
     }
 
     @Transient
-    public String getNombreCompleto(){
-        return nombre+" "+apellido;
+    public String getNombreCompleto() {
+        return nombre + " " + apellido;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    @Transient
+    public int getEdad(){
+        if(fechaNacimiento != null) {
+            return Period.between(
+                    new Date(fechaNacimiento.getTime()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+                    LocalDate.now()
+            ).getYears();
+        }else {
+            return 0;
+        }
     }
 }

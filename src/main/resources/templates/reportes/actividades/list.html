@@ -7,6 +7,8 @@
 <body>
 <span layout:fragment="title">Actividades</span>
 <section layout:fragment="content">
+    <script src="/js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/js/plugins/morris/morris.js"></script>
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -20,6 +22,7 @@
                                 <th>Codigo</th>
                                 <th>Mets</th>
                                 <th>Icono</th>
+                                <th>Reportes</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -28,7 +31,8 @@
                                 <td th:text="${actividad.codigo}">A Smoke Test'</td>
                                 <td th:text="${actividad.mets}">A Smoke Test'</td>
                                 <td><img height="40px" src="" th:src="${actividad.url}"/></td>
-                                <td><a class="btn btn-primary" th:href="${'/reportes/actividad/'+actividad.id}">Ver Reporte</a></td>
+                                <td><a class="btn btn-primary" th:href="${'/reportes/actividad/'+actividad.id}">Ver
+                                    Reporte</a></td>
                             </tr>
                             </tbody>
                         </table>
@@ -37,7 +41,60 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Registros totales por actividad</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Config option 1</a>
+                            </li>
+                            <li><a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="morris-bar-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
 
+        /*<![CDATA[*/
+
+        var contadores = /*[[${contadores}]]*/ '[]';
+
+        /*]]>*/
+    </script>
+
+    <script type="application/javascript">
+        $(function() {
+
+            Morris.Bar({
+                element: 'morris-bar-chart',
+                data: JSON.parse(contadores),
+                xkey: 'y',
+                ykeys: ['totales'],
+                labels: ['Totales'],
+                hideHover: 'auto',
+                resize: true,
+                barColors: ['#1ab394', '#cacaca'],
+            });
+
+        });
+    </script>
 </section>
 </body>
 </html>
