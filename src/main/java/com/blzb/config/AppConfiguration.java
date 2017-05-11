@@ -1,5 +1,6 @@
 package com.blzb.config;
 
+import com.blzb.data.dbo.Actividad;
 import com.blzb.data.dbo.Persona;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -16,5 +17,6 @@ public class AppConfiguration extends RepositoryRestConfigurerAdapter {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.exposeIdsFor(Persona.class);
+        config.exposeIdsFor(Actividad.class);
     }
 }
