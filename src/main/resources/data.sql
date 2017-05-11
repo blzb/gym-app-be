@@ -1,4 +1,4 @@
-insert INTO persona(nombre, apellido, boleta, password, sexo, carrera, fecha_nacimiento) values( 'Juan', 'Perez','2008600903','test', 'Hombre', 'Ingeniería en Informática', '1988-09-08');
+insert INTO persona(nombre, apellido, boleta, password, sexo, carrera, fecha_nacimiento) values( 'Juan', 'Perez','2008600903','test', 'Hombre', 'Lic. en Administración Industrial', '1988-09-08');
 
 insert into estado(fecha, estatura, peso, persona_id) values('2017-04-15', 1.80, 100, 1);
 insert into estado(fecha, estatura, peso, persona_id) values('2017-05-01', 1.80, 95, 1);
@@ -36,69 +36,60 @@ insert into actividad(codigo, nombre, mets, url) values(12150, 'Correr', 8,'http
 
 
 
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (38, '2017-04-15', 3, 1, 380);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-04-16', 3, 1, 110);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-04-17', 3, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (60, '2017-04-18', 3, 1, 600);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-19', 3, 1, 100);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-04-20', 3, 1, 210);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-04-21', 3, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-22', 3, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (33, '2017-04-23', 3, 1, 330);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (12, '2017-04-24', 3, 1, 120);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (38, '2017-04-24', 3, 1, 380);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-04-26', 3, 1, 110);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-04-27', 3, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (60, '2017-04-28', 3, 1, 600);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-29', 3, 1, 100);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-04-30', 3, 1, 210);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-01', 3, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-05-02', 3, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (33, '2017-05-03', 3, 1, 330);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (12, '2017-05-04', 3, 1, 120);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (38, '2017-05-05', 3, 1, 380);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-05-06', 3, 1, 110);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-07', 3, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (60, '2017-05-08', 3, 1, 600);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 3, 1, 100);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-05-10', 3, 1, 210);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 3, 1, 100);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-05-10', 3, 1, 210);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 3, 1, 100);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-05-10', 3, 1, 210);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-15', 26, 1, 100);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-04-16', 26, 1, 110);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-17', 26, 1, 100);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (15, '2017-04-18', 26, 1, 150);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (12, '2017-04-19', 26, 1, 120);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (16, '2017-04-20', 26, 1, 160);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (5, '2017-04-21', 26, 1, 50);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (16, '2017-04-22', 26, 1, 160);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-23', 26, 1, 250);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-24', 26, 1, 200);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (21, '2017-04-25', 26, 1, 210);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (26, '2017-04-26', 26, 1, 260);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-27', 26, 1, 250);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (28, '2017-04-28', 26, 1, 280);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-29', 26, 1, 200);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-04-30', 26, 1, 300);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-01', 26, 1, 300);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (32, '2017-05-02', 26, 1, 320);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (35, '2017-05-03', 26, 1, 350);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (37, '2017-05-04', 26, 1, 370);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (34, '2017-05-05', 26, 1, 340);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (40, '2017-05-06', 26, 1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (45, '2017-05-07', 26, 1, 450);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (45, '2017-05-08', 26, 1, 450);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (60, '2017-05-09', 26, 1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (60, '2017-05-10', 26, 1, 600);
 
 
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (15, '2017-04-15', 10, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (15, '2017-04-16', 10, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (15, '2017-04-17', 10, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (15, '2017-04-18', 10, 1, 300);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-19', 10, 1, 400);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-20', 10, 1, 500);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-21', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (23, '2017-04-22', 10, 1, 460);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-23', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-24', 10, 1, 400);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-24', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-04-26', 10, 1, 220);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-27', 10, 1, 400);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-28', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-29', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-04-30', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-01', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-02', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-03', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (12, '2017-05-04', 10, 1, 220);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (18, '2017-05-05', 10, 1, 360);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-05-06', 10, 1, 220);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-07', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-08', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-05-10', 10, 1, 220);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-05-10', 10, 1, 220);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (10, '2017-05-09', 10, 1, 200);
-insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (11, '2017-05-10', 10, 1, 220);
-
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-15', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-16', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-17', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-18', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-19', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-20', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (5, '2017-04-21', 4,  1, 100);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-22', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (20, '2017-04-23', 4,  1, 400);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-24', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-25', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (26, '2017-04-26', 4,  1, 520);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-27', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-28', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-29', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-04-30', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-05-01', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-05-02', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-05-03', 4,  1, 500);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (25, '2017-05-04', 4,  1, 520);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-05', 4,  1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-06', 4,  1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-07', 4,  1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-08', 4,  1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-09', 4,  1, 600);
+insert INTO marca(duracion, fecha, actividad_id, persona_id, calorias) VALUES (30, '2017-05-10', 4,  1, 600);
 
 insert into materia(carrera, semestre, nombre) values('Lic. en Administración Industrial', 1, 'Comunicación Profesional');
 insert into materia(carrera, semestre, nombre) values('Lic. en Administración Industrial', 1, 'Sociedad, Tecnología y Deontología');
@@ -460,3 +451,23 @@ insert into materia(carrera, semestre, nombre) values('Ingeniería en Transporte
 insert into materia(carrera, semestre, nombre) values('Ingeniería en Transporte',8, 'Dirección y Operación de Terminales');
 insert into materia(carrera, semestre, nombre) values('Ingeniería en Transporte',8, 'Servicio Social');
 
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(1 ,1 , 'Examen Parcial', 6, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(2 ,1 , 'Examen Parcial', 6.5, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(3 ,1 , 'Examen Parcial', 6, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(4 ,1 , 'Examen Parcial', 7, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(5 ,1 , 'Examen Parcial', 4, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(6 ,1 , 'Examen Parcial', 6.5, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(7 ,1 , 'Examen Parcial', 6, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(8 ,1 , 'Examen Parcial', 6, '2017-04-16');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(9 ,1 , 'Examen Parcial', 5, '2017-04-16');
+
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(1 ,1 , 'Tarea', 8, '2017-04-30');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(3 ,1 , 'Tarea', 8, '2017-04-30');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(5 ,1 , 'Tarea', 8, '2017-04-30');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(8 ,1 , 'Tarea', 9, '2017-04-30');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(9 ,1 , 'Tarea', 8, '2017-04-30');
+
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(9 ,1 , 'Tarea', 3, '2017-04-21');
+
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(1 ,1 , 'Examen Parcial', 10, '2017-05-10');
+insert into calificacion(materia_id, persona_id, tipo, valor, fecha) values(2 ,1 , 'Examen Parcial', 9.5, '2017-05-10');

@@ -50,6 +50,7 @@ public class ReportesRendimientoController {
         model.addAttribute("timeValues", values);
         model.addAttribute("calificaciones", calificacions);
         model.addAttribute("persona", persona);
+        model.addAttribute("marcas", marcas);
         return "reportes/rendimiento/report";
     }
 
@@ -83,7 +84,7 @@ public class ReportesRendimientoController {
                 item.put("a", 0);
             }
             if (promedio.containsKey(date)) {
-                item.put("b", promedio.get(date).stream().mapToDouble(i -> i).average().orElse(0));
+                item.put("b", promedio.get(date).stream().mapToDouble(i -> i).average().orElse(0)*10);
             } else {
                 item.put("b", 0);
             }
