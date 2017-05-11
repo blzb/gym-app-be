@@ -47,40 +47,44 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg">
+                    <div class="dropdown profile-element infont"> <span>
+                            <i class="fa fa-user"></i>
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"
                                                                                      th:text="${session.user.nombreCompleto}">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Estudiante<b
+                             </span> <span class="text-muted text-xs block" th:text="${session.rol}">Estudiante<b
                                     class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li><a href="/profile">Profile</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="/logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
                         IN+
                     </div>
                 </li>
-
                 <li>
-                    <a href="/actividad"><i class="fa fa-diamond"></i> <span class="nav-label">Actividades</span></a>
+                    <a href="/"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
+                </li>
+                <li>
+                    <a href="/actividad"><i class="fa fa-futbol-o"></i> <span class="nav-label">Actividades</span></a>
                 </li>
 
                 <li>
-                    <a href="/materias"><i class="fa fa-diamond"></i> <span
+                    <a href="/materias"><i class="fa fa-book"></i> <span
                             class="nav-label">Materias</span></a>
                 </li>
-                <li>
-                    <a href="/alumnos"><i class="fa fa-diamond"></i> <span
+                <li th:if="${session.rol.equalsIgnoreCase('estudiante')}">
+                    <a href="/calificaciones"><i class="fa fa-tachometer"></i> <span
+                            class="nav-label">Calificaciones</span></a>
+                </li>
+                <li th:if="${session.rol.equalsIgnoreCase('admin')}">
+                    <a href="/alumnos"><i class="fa fa-users"></i> <span
                             class="nav-label">Alumnos</span></a>
                 </li>
-                <li>
+                <li th:if="${session.rol.equalsIgnoreCase('admin')}">
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reportes</span><span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
