@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Content page</title>
+</head>
+<body>
+<span layout:fragment="title">Bienvenido</span>
+<section layout:fragment="content">
+    <div class="row" th:if="${session.rol.equalsIgnoreCase('estudiante')}">
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content ibox-heading" style="display: block;">
+                    <h3>Ultimas Actividades</h3>
+                </div>
+                <div class="ibox-content inspinia-timeline">
+                    <div class="timeline-item" th:each="marca : ${marcas}">
+                        <div class="row">
+                            <div class="col-xs-3 date">
+                                <img height="40px" th:src="${marca.actividad.url}">
+                                <br>
+                                <small class="text-navy" th:text="${marca.fecha}">3 hour ago</small>
+                            </div>
+                            <div class="col-xs-7 content">
+                                <p class="m-b-xs"><strong th:text="${marca.actividad.nombre}">Send documents to Mike</strong></p>
+                                <p>Duracion <b th:text="${marca.duracion}"></b> minutos</p>
+                                <p>Calorias <b th:text="${marca.calorias}"></b> kcal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content ibox-heading" style="display: block;">
+                    <h3>Ultimas Calificaciones Registradas</h3>
+                </div>
+                <div class="ibox-content inspinia-timeline">
+                    <div class="timeline-item" th:each="calificacion : ${calificaciones}">
+                        <div class="row">
+                            <div class="col-xs-3 date">
+                                <i class="fa fa-file-text"></i>
+                                <small class="text-navy" th:text="${calificacion.fecha}">3 hour ago</small>
+                            </div>
+                            <div class="col-xs-7 content">
+                                <p class="m-b-xs"><strong th:text="${calificacion.materia.nombre}">Send documents to Mike</strong></p>
+                                <p>Tipo <b th:text="${calificacion.tipo}"></b> </p>
+                                <p>Calificacion <b th:text="${calificacion.valor}"></b> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

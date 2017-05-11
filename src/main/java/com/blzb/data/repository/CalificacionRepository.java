@@ -2,6 +2,7 @@ package com.blzb.data.repository;
 
 import com.blzb.data.dbo.Calificacion;
 import com.blzb.data.dbo.Materia;
+import com.blzb.data.dbo.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
@@ -13,4 +14,6 @@ import java.util.List;
 @RepositoryRestResource(path = "/calificaciones", collectionResourceRel = "calificaciones")
 public interface CalificacionRepository extends JpaRepository<Calificacion, Long> {
     List<Calificacion> findByMateria(Materia materia);
+
+    List<Calificacion> findTop6ByPersonaOrderByFechaDesc(Persona persona);
 }
